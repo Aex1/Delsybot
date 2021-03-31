@@ -1,0 +1,1828 @@
+{
+  "nodes": [
+    {
+      "type": "command",
+      "name": "help",
+      "guid": "7942fe4c-dffa-4146-8cab-d254b3d80d5d",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "37eda463-a170-44f9-af54-61378ffc9294"
+          ]
+        }
+      ],
+      "x": 148,
+      "y": 188
+    },
+    {
+      "type": "command",
+      "name": "info",
+      "guid": "2224944a-561a-4fa1-824b-2f31ea37c836",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "5053a44d-4a5e-460a-974d-da0cc07aac7c"
+          ]
+        }
+      ],
+      "x": 149,
+      "y": 325
+    },
+    {
+      "type": "response",
+      "name": "help menu",
+      "guid": "37eda463-a170-44f9-af54-61378ffc9294",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "!help",
+          "value": "Shows this menu",
+          "inline": "true"
+        },
+        {
+          "name": "!info",
+          "value": "Shows some info",
+          "inline": "false"
+        },
+        {
+          "name": "!map",
+          "value": "Affiche la map de la région indiquée. Pour la carte du monde, taper !map Delsyos",
+          "inline": "false"
+        },
+        {
+          "name": "!wa",
+          "value": "Donne le lien du WorldAnvil de Delsyos",
+          "inline": "false"
+        },
+        {
+          "name": "!wafind",
+          "value": "Donne l'article du WorldAnvil lié à l'élément indiqué.\nDonner l'élément en minuscules, sans accents et avec des tirets - à la place des espaces",
+          "inline": "false"
+        },
+        {
+          "name": "!species",
+          "value": "Affiche une fiche récapitulative sur l'espèce sentiente correspondante",
+          "inline": "false"
+        },
+        {
+          "name": "!namem",
+          "value": "Génère un nom masculin aléatoire",
+          "inline": "true"
+        },
+        {
+          "name": "!namef",
+          "value": "Génère un nom féminin aléatoire",
+          "inline": "true"
+        },
+        {
+          "name": "!namen",
+          "value": "Génère un nom neutre/ de lieu aléatoire",
+          "inline": "true"
+        },
+        {
+          "name": "!setroll20",
+          "value": "Assigne le lien de campagne roll20 fourni à la commande !roll20 ",
+          "inline": "true"
+        },
+        {
+          "name": "!roll20",
+          "value": "Donne le lien roll20 de la campagne Delsyos en cours",
+          "inline": "true"
+        },
+        {
+          "name": "!setperso **link**",
+          "value": "Associe la fiche de personnage associée au lien à l'utilisateur ayant envoyé le message",
+          "inline": "true"
+        },
+        {
+          "name": "!getperso **@User**",
+          "value": "Montre la fiche de perso du joueur mentionné",
+          "inline": "true"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7942fe4c-dffa-4146-8cab-d254b3d80d5d"
+        }
+      ],
+      "x": 345,
+      "y": 182,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "C2B340",
+        "Help Menu",
+        "",
+        "DelsyosBot / Help",
+        "https://cdn.discordapp.com/avatars/820627290509672459/4c1eb391bbcd58a421b55da59c28d611.png",
+        "",
+        "Bienvenue sur la centrale d'aide de DelsyosBot",
+        "",
+        "",
+        "DelsyosBot",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "show info",
+      "guid": "5053a44d-4a5e-460a-974d-da0cc07aac7c",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "2224944a-561a-4fa1-824b-2f31ea37c836"
+        }
+      ],
+      "x": 360,
+      "y": 324,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Delsyos Creator : @Heimdall680\nBot Dev : @Corentin",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "map",
+      "guid": "a8826ff2-4cd1-4c23-a357-56c4f5f7c04a",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "46809099-8715-45fb-9771-a47527c7563a"
+          ]
+        }
+      ],
+      "x": 559,
+      "y": 252
+    },
+    {
+      "type": "response",
+      "name": "getreqmap",
+      "guid": "46809099-8715-45fb-9771-a47527c7563a",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "reqmap",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "d4052784-393b-4ae5-b8e6-d5933909f1cb"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a8826ff2-4cd1-4c23-a357-56c4f5f7c04a"
+        }
+      ],
+      "x": 722,
+      "y": 235,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "reqmap",
+        "Text",
+        "temp",
+        "1+"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "searchmap",
+      "guid": "d4052784-393b-4ae5-b8e6-d5933909f1cb",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "row is found",
+          "connections": [
+            "269d1892-df52-4bd9-bc4c-260419b3d1ab"
+          ]
+        },
+        {
+          "label": "row not found",
+          "connections": [
+            "d360df4b-6686-4b54-b944-bb2a9a1a0ecf"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "46809099-8715-45fb-9771-a47527c7563a"
+        }
+      ],
+      "x": 894,
+      "y": 233,
+      "rtype": "Spreadsheet",
+      "rsubtype": "Get Row",
+      "formdata": [
+        "carte.csv",
+        "Zone",
+        "${tempVars.reqmap}",
+        "maprow",
+        "temp"
+      ],
+      "formnames": [
+        "selectedsheet",
+        "colheader",
+        "colval",
+        "rowvariable",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "mapimg",
+      "guid": "269d1892-df52-4bd9-bc4c-260419b3d1ab",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "d4052784-393b-4ae5-b8e6-d5933909f1cb"
+        }
+      ],
+      "x": 1071,
+      "y": 228,
+      "rtype": "Message",
+      "rsubtype": "Send Image",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "${tempVars.maprow.UrlImg}",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "url",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "errormap",
+      "guid": "d360df4b-6686-4b54-b944-bb2a9a1a0ecf",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "d4052784-393b-4ae5-b8e6-d5933909f1cb"
+        }
+      ],
+      "x": 1072,
+      "y": 352,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "**ERROR** : Map not found",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "wa",
+      "guid": "cd3ffb6b-8259-4567-a0e7-4f3ffd1c098b",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "15620af2-9acb-4385-bbe5-e9ab462a98f6"
+          ]
+        }
+      ],
+      "x": 128,
+      "y": 510
+    },
+    {
+      "type": "response",
+      "name": "waemb",
+      "guid": "15620af2-9acb-4385-bbe5-e9ab462a98f6",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "cd3ffb6b-8259-4567-a0e7-4f3ffd1c098b"
+        }
+      ],
+      "x": 354,
+      "y": 512,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "C2B340",
+        "WorldAnvil",
+        "https://www.worldanvil.com/w/nelyr-heimdall680",
+        "DelsyosBot / WorldAnvil",
+        "https://cdn.discordapp.com/avatars/820627290509672459/4c1eb391bbcd58a421b55da59c28d611.png",
+        "",
+        "Le WorldAnvil de Delsyos regroupe les informations sur le lore de Delsyos, en français.",
+        "",
+        "https://www.worldanvil.com/media/cache/cover/uploads/images/71d1cea65044f7c5dc6439870e926578.jpg",
+        "DelsyosBot",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "wafind",
+      "guid": "f952bd0c-f59b-4f50-9ff1-b7b0fdb5ce5e",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "8cfcfc32-9867-453c-a53b-932043bd1928"
+          ]
+        }
+      ],
+      "x": 562,
+      "y": 534
+    },
+    {
+      "type": "response",
+      "name": "wafindval",
+      "guid": "8cfcfc32-9867-453c-a53b-932043bd1928",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "reqart",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "147fc1c6-60c2-4e74-84a1-d3c8d11020d2"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "f952bd0c-f59b-4f50-9ff1-b7b0fdb5ce5e"
+        }
+      ],
+      "x": 750,
+      "y": 517,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "reqart",
+        "Text",
+        "temp",
+        "1+"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "sendart",
+      "guid": "147fc1c6-60c2-4e74-84a1-d3c8d11020d2",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "8cfcfc32-9867-453c-a53b-932043bd1928"
+        }
+      ],
+      "x": 950,
+      "y": 520,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "C2B340",
+        "${tempVars.reqart} - WorldAnvil",
+        "https://www.worldanvil.com/w/nelyr-heimdall680/a/${tempVars.reqart}-article",
+        "DelsyosBot / WorldAnvil / ${tempVars.reqart}",
+        "https://cdn.discordapp.com/avatars/820627290509672459/4c1eb391bbcd58a421b55da59c28d611.png",
+        "",
+        "",
+        "https://cdn.discordapp.com/avatars/820627290509672459/4c1eb391bbcd58a421b55da59c28d611.png",
+        "",
+        "DelsyosBot",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "species",
+      "guid": "8f049da7-d62c-402a-9714-dcc658b69322",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "138e1e39-d457-4a1d-b4a5-9eff56876028"
+          ]
+        }
+      ],
+      "x": 137,
+      "y": 724
+    },
+    {
+      "type": "response",
+      "name": "reqspe",
+      "guid": "138e1e39-d457-4a1d-b4a5-9eff56876028",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "reqspe",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "c4ffe6e6-364e-4a51-a2a5-3a7e395696c0"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "8f049da7-d62c-402a-9714-dcc658b69322"
+        }
+      ],
+      "x": 336,
+      "y": 704,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "reqspe",
+        "Text",
+        "temp",
+        "1+"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "getspe",
+      "guid": "c4ffe6e6-364e-4a51-a2a5-3a7e395696c0",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "row is found",
+          "connections": [
+            "b482c85a-518a-4017-b8ec-67716f7fee61"
+          ]
+        },
+        {
+          "label": "row not found",
+          "connections": [
+            "7b190492-11de-4c50-86a5-50d3e23f26a2"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "138e1e39-d457-4a1d-b4a5-9eff56876028"
+        }
+      ],
+      "x": 534,
+      "y": 695,
+      "rtype": "Spreadsheet",
+      "rsubtype": "Get Row",
+      "formdata": [
+        "Species.csv",
+        "espece",
+        "${tempVars.reqspe}",
+        "sperow",
+        "temp"
+      ],
+      "formnames": [
+        "selectedsheet",
+        "colheader",
+        "colval",
+        "rowvariable",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "embspe",
+      "guid": "b482c85a-518a-4017-b8ec-67716f7fee61",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "Espèces",
+          "value": "${tempVars.sperow.quote}",
+          "inline": "false"
+        },
+        {
+          "name": "Origine",
+          "value": "${tempVars.sperow.origine}",
+          "inline": "true"
+        },
+        {
+          "name": "Biologie",
+          "value": "${tempVars.sperow.biologie}",
+          "inline": "true"
+        },
+        {
+          "name": "Habitat",
+          "value": "${tempVars.sperow.habitat}",
+          "inline": "true"
+        },
+        {
+          "name": "Société",
+          "value": "${tempVars.sperow.societe}",
+          "inline": "false"
+        },
+        {
+          "name": "Organisations",
+          "value": "${tempVars.sperow.organisations}",
+          "inline": "true"
+        },
+        {
+          "name": "Figures",
+          "value": "${tempVars.sperow.figures}",
+          "inline": "true"
+        },
+        {
+          "name": "Noms",
+          "value": "${tempVars.sperow.noms}",
+          "inline": "true"
+        },
+        {
+          "name": "Langues",
+          "value": "${tempVars.sperow.langues}",
+          "inline": "true"
+        },
+        {
+          "name": "Histoire",
+          "value": "${tempVars.sperow.histoire}",
+          "inline": "false"
+        },
+        {
+          "name": "Sous-Espèces",
+          "value": "${tempVars.sperow.ssesp}",
+          "inline": "true"
+        }
+      ],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c4ffe6e6-364e-4a51-a2a5-3a7e395696c0"
+        }
+      ],
+      "x": 761,
+      "y": 669,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "C2B340",
+        "${tempVars.reqspe}",
+        "",
+        "DelsyosBot / WorldAnvil / Espèces",
+        "https://cdn.discordapp.com/avatars/820627290509672459/4c1eb391bbcd58a421b55da59c28d611.png",
+        "",
+        "",
+        "",
+        "",
+        "DelsyosBot",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "errorspe",
+      "guid": "7b190492-11de-4c50-86a5-50d3e23f26a2",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c4ffe6e6-364e-4a51-a2a5-3a7e395696c0"
+        }
+      ],
+      "x": 757,
+      "y": 797,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "**ERROR** : No species with name *${tempVars.reqspe}*",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "roll",
+      "guid": "24e6f58e-8886-4105-be0f-fe28ee2f6e4b",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "1c8f0a12-7331-4960-b784-c41f21439d44"
+          ]
+        }
+      ],
+      "x": 1255,
+      "y": 294
+    },
+    {
+      "type": "response",
+      "name": "r",
+      "guid": "044d4486-6de4-4988-9000-e290e89495e9",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "b21e592c-217b-47ca-a4c7-f1405c9b8bbc"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "1c8f0a12-7331-4960-b784-c41f21439d44"
+        }
+      ],
+      "x": 1615,
+      "y": 290,
+      "rtype": "Variable",
+      "rsubtype": "Generate Random Number",
+      "formdata": [
+        "r",
+        "1",
+        "${tempVars.nbface}",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "min",
+        "max",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "getd_1",
+      "guid": "1c8f0a12-7331-4960-b784-c41f21439d44",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "nbface",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "044d4486-6de4-4988-9000-e290e89495e9"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "24e6f58e-8886-4105-be0f-fe28ee2f6e4b"
+        }
+      ],
+      "x": 1437,
+      "y": 281,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "nbface",
+        "Number",
+        "temp",
+        "1"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "senddice",
+      "guid": "b21e592c-217b-47ca-a4c7-f1405c9b8bbc",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "044d4486-6de4-4988-9000-e290e89495e9"
+        }
+      ],
+      "x": 1804,
+      "y": 292,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "**ROLL** : Sur votre d${tempVars.nbface} , vous avez obtenu un ${tempVars.r} !",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "namef",
+      "guid": "2093a91c-38cb-49c4-a79e-0c9164e39858",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "9c12b761-aeee-42b3-9da1-da1120e67ae3"
+          ]
+        }
+      ],
+      "x": 128,
+      "y": 966
+    },
+    {
+      "type": "response",
+      "name": "genrfem",
+      "guid": "9c12b761-aeee-42b3-9da1-da1120e67ae3",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "cbf33bfd-b653-40dd-b91c-6a3f1fa29844"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "2093a91c-38cb-49c4-a79e-0c9164e39858"
+        }
+      ],
+      "x": 363,
+      "y": 964,
+      "rtype": "Variable",
+      "rsubtype": "Generate Random Number",
+      "formdata": [
+        "rfem",
+        "1",
+        "230",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "min",
+        "max",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "getname",
+      "guid": "cbf33bfd-b653-40dd-b91c-6a3f1fa29844",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "row is found",
+          "connections": [
+            "0229c31a-f87c-46b2-811b-19826b065adb"
+          ]
+        },
+        {
+          "label": "row not found",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "9c12b761-aeee-42b3-9da1-da1120e67ae3"
+        }
+      ],
+      "x": 579,
+      "y": 956,
+      "rtype": "Spreadsheet",
+      "rsubtype": "Get Row",
+      "formdata": [
+        "fenames.csv",
+        "ID",
+        "${tempVars.rfem}",
+        "namefem",
+        "temp"
+      ],
+      "formnames": [
+        "selectedsheet",
+        "colheader",
+        "colval",
+        "rowvariable",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "namefmes",
+      "guid": "0229c31a-f87c-46b2-811b-19826b065adb",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "cbf33bfd-b653-40dd-b91c-6a3f1fa29844"
+        }
+      ],
+      "x": 789,
+      "y": 974,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Nom féminin : **${tempVars.namefem.Name}**",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "genrfem_1",
+      "guid": "a2613a00-c330-4922-9f11-08f21ab1fe85",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "545a679a-4c2c-44fe-80dc-a1a51e7a31e8"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "c206286f-6756-4786-b1c1-cc0b421caf2d"
+        }
+      ],
+      "x": 362,
+      "y": 1116,
+      "rtype": "Variable",
+      "rsubtype": "Generate Random Number",
+      "formdata": [
+        "rma",
+        "1",
+        "269",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "min",
+        "max",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "getname_1",
+      "guid": "545a679a-4c2c-44fe-80dc-a1a51e7a31e8",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "row is found",
+          "connections": [
+            "1fc8f076-11c4-4466-a632-6dbfba81189c"
+          ]
+        },
+        {
+          "label": "row not found",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a2613a00-c330-4922-9f11-08f21ab1fe85"
+        }
+      ],
+      "x": 560,
+      "y": 1109,
+      "rtype": "Spreadsheet",
+      "rsubtype": "Get Row",
+      "formdata": [
+        "manames.csv",
+        "ID",
+        "${tempVars.rma}",
+        "namema",
+        "temp"
+      ],
+      "formnames": [
+        "selectedsheet",
+        "colheader",
+        "colval",
+        "rowvariable",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "namefmes_1",
+      "guid": "1fc8f076-11c4-4466-a632-6dbfba81189c",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "545a679a-4c2c-44fe-80dc-a1a51e7a31e8"
+        }
+      ],
+      "x": 806,
+      "y": 1109,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Nom masculin : **${tempVars.namema.Name}**",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "namem",
+      "guid": "c206286f-6756-4786-b1c1-cc0b421caf2d",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "a2613a00-c330-4922-9f11-08f21ab1fe85"
+          ]
+        }
+      ],
+      "x": 126,
+      "y": 1120
+    },
+    {
+      "type": "response",
+      "name": "genrfem_1_1",
+      "guid": "7230541f-ab73-4b34-b820-a5f6a890dc6f",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "0f8cf6dd-1ab7-46f5-9ea0-c94b57ed5abd"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "776d1f40-79f5-4cd1-9dbb-a7bdb04132d3"
+        }
+      ],
+      "x": 366,
+      "y": 1259,
+      "rtype": "Variable",
+      "rsubtype": "Generate Random Number",
+      "formdata": [
+        "rneu",
+        "1",
+        "30",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "min",
+        "max",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "getname_1_1",
+      "guid": "0f8cf6dd-1ab7-46f5-9ea0-c94b57ed5abd",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "row is found",
+          "connections": [
+            "cf1812aa-ed5b-4911-a8c1-4d9328ebe585"
+          ]
+        },
+        {
+          "label": "row not found",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7230541f-ab73-4b34-b820-a5f6a890dc6f"
+        }
+      ],
+      "x": 565,
+      "y": 1262,
+      "rtype": "Spreadsheet",
+      "rsubtype": "Get Row",
+      "formdata": [
+        "neunames.csv",
+        "ID",
+        "${tempVars.rneu}",
+        "nameneu",
+        "temp"
+      ],
+      "formnames": [
+        "selectedsheet",
+        "colheader",
+        "colval",
+        "rowvariable",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "namefmes_1_1",
+      "guid": "cf1812aa-ed5b-4911-a8c1-4d9328ebe585",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "0f8cf6dd-1ab7-46f5-9ea0-c94b57ed5abd"
+        }
+      ],
+      "x": 806,
+      "y": 1241,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Nom neutre : **${tempVars.nameneu.Name}**",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "namen",
+      "guid": "776d1f40-79f5-4cd1-9dbb-a7bdb04132d3",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "7230541f-ab73-4b34-b820-a5f6a890dc6f"
+          ]
+        }
+      ],
+      "x": 115,
+      "y": 1267
+    },
+    {
+      "type": "command",
+      "name": "setroll20",
+      "guid": "8e44fe76-49f8-4e85-9db0-bbbfce64753f",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "ddd3a184-8bb8-4e88-ad3a-8e3e6113b7ca"
+          ]
+        }
+      ],
+      "x": 125,
+      "y": 1477,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "setroll20res",
+      "guid": "ddd3a184-8bb8-4e88-ad3a-8e3e6113b7ca",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "roll20link",
+      "saveToVariableType": "server",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "784c41b7-61de-4f41-aa74-2cd4a264e35a"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "8e44fe76-49f8-4e85-9db0-bbbfce64753f"
+        }
+      ],
+      "x": 327,
+      "y": 1450,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "roll20link",
+        "Text",
+        "server",
+        "1+"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "linkroll",
+      "guid": "784c41b7-61de-4f41-aa74-2cd4a264e35a",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "ddd3a184-8bb8-4e88-ad3a-8e3e6113b7ca"
+        }
+      ],
+      "x": 534,
+      "y": 1454,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Lien pour la campagne : ${serverVars.roll20link}",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "roll20",
+      "guid": "7d617d05-e03b-4382-9832-0289bbe4b6d8",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "a718b8eb-e81f-4189-b21f-8d312422c7dd"
+          ]
+        }
+      ],
+      "x": 120,
+      "y": 1595
+    },
+    {
+      "type": "response",
+      "name": "linkroll_1",
+      "guid": "a718b8eb-e81f-4189-b21f-8d312422c7dd",
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7d617d05-e03b-4382-9832-0289bbe4b6d8"
+        }
+      ],
+      "x": 329,
+      "y": 1585,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Lien pour la campagne : ${serverVars.roll20link}",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "setperso",
+      "guid": "75367a8e-6c0f-4caf-bfd6-bc7288ceb5d3",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "83d6fe19-9722-4cde-9fc0-092ec5a7db29"
+          ]
+        }
+      ],
+      "x": 117,
+      "y": 1754,
+      "perms": []
+    },
+    {
+      "type": "response",
+      "name": "get fiche",
+      "guid": "221b0bf3-0c19-4381-9480-1a18ad78bcb8",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "18f97a6a-b22e-4d22-9708-a11df5b2b36d"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "83d6fe19-9722-4cde-9fc0-092ec5a7db29"
+        }
+      ],
+      "x": 464,
+      "y": 1740,
+      "rtype": "User Data",
+      "rsubtype": "Set User Data",
+      "formdata": [
+        "${dbsVars.CommandAuthor.id}",
+        "fiche",
+        "${tempVars.ficheperslink}"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "fieldvalue"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "set fiche",
+      "guid": "83d6fe19-9722-4cde-9fc0-092ec5a7db29",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "ficheperslink",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "221b0bf3-0c19-4381-9480-1a18ad78bcb8"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "75367a8e-6c0f-4caf-bfd6-bc7288ceb5d3"
+        }
+      ],
+      "x": 291,
+      "y": 1740,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "ficheperslink",
+        "Text",
+        "temp",
+        "1+"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "getperso",
+      "guid": "a22bc1e1-e3e0-41dd-99ec-bed8e4b9dac1",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "be8ced50-8c30-413c-a8f3-65b523eaa619"
+          ]
+        }
+      ],
+      "x": 117,
+      "y": 1871
+    },
+    {
+      "type": "response",
+      "name": "getplayer",
+      "guid": "be8ced50-8c30-413c-a8f3-65b523eaa619",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "39552ebd-ed8b-46f5-8e95-5f3635534b0f"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "a22bc1e1-e3e0-41dd-99ec-bed8e4b9dac1"
+        }
+      ],
+      "x": 303,
+      "y": 1870,
+      "rtype": "Variable",
+      "rsubtype": "Get Mentioned User",
+      "formdata": [
+        "ficheplayer",
+        "User",
+        "temp"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "getsearchfiche",
+      "guid": "39552ebd-ed8b-46f5-8e95-5f3635534b0f",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "gotfiche",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "54da4460-5583-4f52-bf00-c6a6887ac6f7"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "be8ced50-8c30-413c-a8f3-65b523eaa619"
+        }
+      ],
+      "x": 492,
+      "y": 1871,
+      "rtype": "User Data",
+      "rsubtype": "Get User Data",
+      "formdata": [
+        "${tempVars.ficheplayer.id}",
+        "fiche",
+        "gotfiche",
+        "temp",
+        "User"
+      ],
+      "formnames": [
+        "user",
+        "field",
+        "varname",
+        "saveVarType",
+        "vartype"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "sendfiche",
+      "guid": "54da4460-5583-4f52-bf00-c6a6887ac6f7",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "39552ebd-ed8b-46f5-8e95-5f3635534b0f"
+        }
+      ],
+      "x": 686,
+      "y": 1872,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "${tempVars.gotfiche}",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "donefiche",
+      "guid": "18f97a6a-b22e-4d22-9708-a11df5b2b36d",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "221b0bf3-0c19-4381-9480-1a18ad78bcb8"
+        }
+      ],
+      "x": 653,
+      "y": 1744,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Done !",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "setstatus",
+      "guid": "43608513-4ab2-4001-b234-b5cb2e6432c7",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "ce874f77-6e76-4aeb-aac4-e9c49e23f915"
+          ]
+        }
+      ],
+      "x": 250,
+      "y": 2150
+    },
+    {
+      "type": "response",
+      "name": "getstatusbot",
+      "guid": "ce874f77-6e76-4aeb-aac4-e9c49e23f915",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "botstatu",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "eb5b4ca6-7e7d-420e-9215-4dab4be2f4d9"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "43608513-4ab2-4001-b234-b5cb2e6432c7"
+        }
+      ],
+      "x": 449,
+      "y": 2150,
+      "rtype": "Variable",
+      "rsubtype": "Store Value in Variable",
+      "formdata": [
+        "botstatu",
+        "Text",
+        "temp",
+        "1+"
+      ],
+      "formnames": [
+        "varname",
+        "vartype",
+        "saveVarType",
+        "param"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "setaction",
+      "guid": "eb5b4ca6-7e7d-420e-9215-4dab4be2f4d9",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "ce874f77-6e76-4aeb-aac4-e9c49e23f915"
+        }
+      ],
+      "x": 635,
+      "y": 2151,
+      "rtype": "Bot Action",
+      "rsubtype": "Set Bot Activity",
+      "formdata": [
+        "${tempVars.botstatu}",
+        "PLAYING",
+        ""
+      ],
+      "formnames": [
+        "activityname",
+        "activitytype",
+        "streamurl"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "watch2gether",
+      "guid": "19c46d2b-999f-4416-b8c1-9f642c284f92",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "24eb2a71-bd25-48ef-b494-ee742a13b28f"
+          ]
+        }
+      ],
+      "x": 218,
+      "y": 2354
+    },
+    {
+      "type": "response",
+      "name": "linkwatch",
+      "guid": "24eb2a71-bd25-48ef-b494-ee742a13b28f",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "19c46d2b-999f-4416-b8c1-9f642c284f92"
+        }
+      ],
+      "x": 423,
+      "y": 2341,
+      "rtype": "Message",
+      "rsubtype": "Send Message",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "Lien pour le watch2gether de la campagne D&D : https://w2g.tv/rooms/dndrotf-q1paa9hz9fr5bunlo6?lang=fr",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelName",
+        "messageText",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    }
+  ]
+}

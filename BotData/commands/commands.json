@@ -1,0 +1,603 @@
+{
+  "command": [
+    {
+      "name": "help",
+      "actions": [
+        {
+          "name": "help menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "!help",
+              "value": "Shows this menu",
+              "inline": "true"
+            },
+            {
+              "name": "!info",
+              "value": "Shows some info",
+              "inline": "false"
+            },
+            {
+              "name": "!map",
+              "value": "Affiche la map de la région indiquée. Pour la carte du monde, taper !map Delsyos",
+              "inline": "false"
+            },
+            {
+              "name": "!wa",
+              "value": "Donne le lien du WorldAnvil de Delsyos",
+              "inline": "false"
+            },
+            {
+              "name": "!wafind",
+              "value": "Donne l'article du WorldAnvil lié à l'élément indiqué.\nDonner l'élément en minuscules, sans accents et avec des tirets - à la place des espaces",
+              "inline": "false"
+            },
+            {
+              "name": "!species",
+              "value": "Affiche une fiche récapitulative sur l'espèce sentiente correspondante",
+              "inline": "false"
+            },
+            {
+              "name": "!namem",
+              "value": "Génère un nom masculin aléatoire",
+              "inline": "true"
+            },
+            {
+              "name": "!namef",
+              "value": "Génère un nom féminin aléatoire",
+              "inline": "true"
+            },
+            {
+              "name": "!namen",
+              "value": "Génère un nom neutre/ de lieu aléatoire",
+              "inline": "true"
+            },
+            {
+              "name": "!setroll20",
+              "value": "Assigne le lien de campagne roll20 fourni à la commande !roll20 ",
+              "inline": "true"
+            },
+            {
+              "name": "!roll20",
+              "value": "Donne le lien roll20 de la campagne Delsyos en cours",
+              "inline": "true"
+            },
+            {
+              "name": "!setperso **link**",
+              "value": "Associe la fiche de personnage associée au lien à l'utilisateur ayant envoyé le message",
+              "inline": "true"
+            },
+            {
+              "name": "!getperso **@User**",
+              "value": "Montre la fiche de perso du joueur mentionné",
+              "inline": "true"
+            }
+          ],
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "C2B340",
+          "title": "Help Menu",
+          "url": "",
+          "authorname": "DelsyosBot / Help",
+          "authorimageurl": "https://cdn.discordapp.com/avatars/820627290509672459/4c1eb391bbcd58a421b55da59c28d611.png",
+          "authorlink": "",
+          "description": "Bienvenue sur la centrale d'aide de DelsyosBot",
+          "thumbnail": "",
+          "image": "",
+          "footer": "DelsyosBot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "info",
+      "actions": [
+        {
+          "name": "show info",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "Delsyos Creator : @Heimdall680\nBot Dev : @Corentin",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "map",
+      "actions": [
+        {
+          "name": "getreqmap",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "varname": "reqmap",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "1+"
+        },
+        {
+          "name": "searchmap",
+          "category": "Spreadsheet",
+          "type": "Get Row",
+          "trueActions": [
+            {
+              "name": "mapimg",
+              "category": "Message",
+              "type": "Send Image",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "url": "${tempVars.maprow.UrlImg}",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "errormap",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "**ERROR** : Map not found",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "selectedsheet": "carte.csv",
+          "colheader": "Zone",
+          "colval": "${tempVars.reqmap}",
+          "rowvariable": "maprow",
+          "savevartype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "wa",
+      "actions": [
+        {
+          "name": "waemb",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "C2B340",
+          "title": "WorldAnvil",
+          "url": "https://www.worldanvil.com/w/nelyr-heimdall680",
+          "authorname": "DelsyosBot / WorldAnvil",
+          "authorimageurl": "https://cdn.discordapp.com/avatars/820627290509672459/4c1eb391bbcd58a421b55da59c28d611.png",
+          "authorlink": "",
+          "description": "Le WorldAnvil de Delsyos regroupe les informations sur le lore de Delsyos, en français.",
+          "thumbnail": "",
+          "image": "https://www.worldanvil.com/media/cache/cover/uploads/images/71d1cea65044f7c5dc6439870e926578.jpg",
+          "footer": "DelsyosBot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "wafind",
+      "actions": [
+        {
+          "name": "wafindval",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "varname": "reqart",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "1+"
+        },
+        {
+          "name": "sendart",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "C2B340",
+          "title": "${tempVars.reqart} - WorldAnvil",
+          "url": "https://www.worldanvil.com/w/nelyr-heimdall680/a/${tempVars.reqart}-article",
+          "authorname": "DelsyosBot / WorldAnvil / ${tempVars.reqart}",
+          "authorimageurl": "https://cdn.discordapp.com/avatars/820627290509672459/4c1eb391bbcd58a421b55da59c28d611.png",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "https://cdn.discordapp.com/avatars/820627290509672459/4c1eb391bbcd58a421b55da59c28d611.png",
+          "image": "",
+          "footer": "DelsyosBot",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "species",
+      "actions": [
+        {
+          "name": "reqspe",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "varname": "reqspe",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "1+"
+        },
+        {
+          "name": "getspe",
+          "category": "Spreadsheet",
+          "type": "Get Row",
+          "trueActions": [
+            {
+              "name": "embspe",
+              "category": "Message",
+              "type": "Send Embed",
+              "fields": [
+                {
+                  "name": "Espèces",
+                  "value": "${tempVars.sperow.quote}",
+                  "inline": "false"
+                },
+                {
+                  "name": "Origine",
+                  "value": "${tempVars.sperow.origine}",
+                  "inline": "true"
+                },
+                {
+                  "name": "Biologie",
+                  "value": "${tempVars.sperow.biologie}",
+                  "inline": "true"
+                },
+                {
+                  "name": "Habitat",
+                  "value": "${tempVars.sperow.habitat}",
+                  "inline": "true"
+                },
+                {
+                  "name": "Société",
+                  "value": "${tempVars.sperow.societe}",
+                  "inline": "false"
+                },
+                {
+                  "name": "Organisations",
+                  "value": "${tempVars.sperow.organisations}",
+                  "inline": "true"
+                },
+                {
+                  "name": "Figures",
+                  "value": "${tempVars.sperow.figures}",
+                  "inline": "true"
+                },
+                {
+                  "name": "Noms",
+                  "value": "${tempVars.sperow.noms}",
+                  "inline": "true"
+                },
+                {
+                  "name": "Langues",
+                  "value": "${tempVars.sperow.langues}",
+                  "inline": "true"
+                },
+                {
+                  "name": "Histoire",
+                  "value": "${tempVars.sperow.histoire}",
+                  "inline": "false"
+                },
+                {
+                  "name": "Sous-Espèces",
+                  "value": "${tempVars.sperow.ssesp}",
+                  "inline": "true"
+                }
+              ],
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "color": "C2B340",
+              "title": "${tempVars.reqspe}",
+              "url": "",
+              "authorname": "DelsyosBot / WorldAnvil / Espèces",
+              "authorimageurl": "https://cdn.discordapp.com/avatars/820627290509672459/4c1eb391bbcd58a421b55da59c28d611.png",
+              "authorlink": "",
+              "description": "",
+              "thumbnail": "",
+              "image": "",
+              "footer": "DelsyosBot",
+              "timestamp": "BOOL_TRUE@@",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [
+            {
+              "name": "errorspe",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "**ERROR** : No species with name *${tempVars.reqspe}*",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "selectedsheet": "Species.csv",
+          "colheader": "espece",
+          "colval": "${tempVars.reqspe}",
+          "rowvariable": "sperow",
+          "savevartype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "roll",
+      "actions": [
+        {
+          "name": "getd_1",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "varname": "nbface",
+          "vartype": "Number",
+          "savevartype": "temp",
+          "param": "1"
+        },
+        {
+          "name": "r",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "varname": "r",
+          "min": "1",
+          "max": "${tempVars.nbface}",
+          "savevartype": "temp"
+        },
+        {
+          "name": "senddice",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "**ROLL** : Sur votre d${tempVars.nbface} , vous avez obtenu un ${tempVars.r} !",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "namef",
+      "actions": [
+        {
+          "name": "genrfem",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "varname": "rfem",
+          "min": "1",
+          "max": "230",
+          "savevartype": "temp"
+        },
+        {
+          "name": "getname",
+          "category": "Spreadsheet",
+          "type": "Get Row",
+          "trueActions": [
+            {
+              "name": "namefmes",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Nom féminin : **${tempVars.namefem.Name}**",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "selectedsheet": "fenames.csv",
+          "colheader": "ID",
+          "colval": "${tempVars.rfem}",
+          "rowvariable": "namefem",
+          "savevartype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "namem",
+      "actions": [
+        {
+          "name": "genrfem_1",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "varname": "rma",
+          "min": "1",
+          "max": "269",
+          "savevartype": "temp"
+        },
+        {
+          "name": "getname_1",
+          "category": "Spreadsheet",
+          "type": "Get Row",
+          "trueActions": [
+            {
+              "name": "namefmes_1",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Nom masculin : **${tempVars.namema.Name}**",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "selectedsheet": "manames.csv",
+          "colheader": "ID",
+          "colval": "${tempVars.rma}",
+          "rowvariable": "namema",
+          "savevartype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "namen",
+      "actions": [
+        {
+          "name": "genrfem_1_1",
+          "category": "Variable",
+          "type": "Generate Random Number",
+          "varname": "rneu",
+          "min": "1",
+          "max": "30",
+          "savevartype": "temp"
+        },
+        {
+          "name": "getname_1_1",
+          "category": "Spreadsheet",
+          "type": "Get Row",
+          "trueActions": [
+            {
+              "name": "namefmes_1_1",
+              "category": "Message",
+              "type": "Send Message",
+              "channelname": "${dbsVars.CommandChannel.id}",
+              "messagetext": "Nom neutre : **${tempVars.nameneu.Name}**",
+              "savetovariable": "",
+              "savetovariabletype": "temp"
+            }
+          ],
+          "falseActions": [],
+          "selectedsheet": "neunames.csv",
+          "colheader": "ID",
+          "colval": "${tempVars.rneu}",
+          "rowvariable": "nameneu",
+          "savevartype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "setroll20",
+      "perms": [],
+      "actions": [
+        {
+          "name": "setroll20res",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "varname": "roll20link",
+          "vartype": "Text",
+          "savevartype": "server",
+          "param": "1+"
+        },
+        {
+          "name": "linkroll",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "Lien pour la campagne : ${serverVars.roll20link}",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "roll20",
+      "actions": [
+        {
+          "name": "linkroll_1",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "Lien pour la campagne : ${serverVars.roll20link}",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "setperso",
+      "perms": [],
+      "actions": [
+        {
+          "name": "set fiche",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "varname": "ficheperslink",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "1+"
+        },
+        {
+          "name": "get fiche",
+          "category": "User Data",
+          "type": "Set User Data",
+          "user": "${dbsVars.CommandAuthor.id}",
+          "field": "fiche",
+          "fieldvalue": "${tempVars.ficheperslink}"
+        },
+        {
+          "name": "donefiche",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "Done !",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "getperso",
+      "actions": [
+        {
+          "name": "getplayer",
+          "category": "Variable",
+          "type": "Get Mentioned User",
+          "varname": "ficheplayer",
+          "vartype": "User",
+          "savevartype": "temp"
+        },
+        {
+          "name": "getsearchfiche",
+          "category": "User Data",
+          "type": "Get User Data",
+          "user": "${tempVars.ficheplayer.id}",
+          "field": "fiche",
+          "varname": "gotfiche",
+          "savevartype": "temp",
+          "vartype": "User"
+        },
+        {
+          "name": "sendfiche",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "${tempVars.gotfiche}",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "setstatus",
+      "actions": [
+        {
+          "name": "getstatusbot",
+          "category": "Variable",
+          "type": "Store Value in Variable",
+          "varname": "botstatu",
+          "vartype": "Text",
+          "savevartype": "temp",
+          "param": "1+"
+        },
+        {
+          "name": "setaction",
+          "category": "Bot Action",
+          "type": "Set Bot Activity",
+          "activityname": "${tempVars.botstatu}",
+          "activitytype": "PLAYING",
+          "streamurl": ""
+        }
+      ]
+    },
+    {
+      "name": "watch2gether",
+      "actions": [
+        {
+          "name": "linkwatch",
+          "category": "Message",
+          "type": "Send Message",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "messagetext": "Lien pour le watch2gether de la campagne D&D : https://w2g.tv/rooms/dndrotf-q1paa9hz9fr5bunlo6?lang=fr",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    }
+  ]
+}
